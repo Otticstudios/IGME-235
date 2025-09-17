@@ -1,0 +1,24 @@
+/* Style.css*/
+ 
+    h1 { 
+        color:#f6511d;
+        font-family: sans-serif;
+        border-bottom: 1px solid blue;
+        }
+    blockquote { 
+        background-color: lightgray;
+        padding: 1rem;
+        }
+    body{
+        background-color: #86BBD8;
+    }
+    h2{
+        margin-left: 25px;
+        color: #071a70;
+    }
+    p{margin-left: 50px;}
+    footer{background-color: #843B62;}
+    img.side {float:right; margin: 0 12px;}
+    a:link{color: #156064;}
+    a:visited{color: #A08794;}
+    
