@@ -16,20 +16,20 @@ li{
     color:#0a2343;
 }
 a:link{
-    color:#0a2343;
+    color:gold;
 }
 
 a:visited{
-    color:blue;
+    color:orange;
 }
 a:hover{
-    color:#BAD7D6;
+    color:#f8c81c;
 }
 a:focus{
-    color:rgb(32, 65, 166);
+    color:#F19E04;
 }
 a:active{
-color:#BBDAE9;
+color:#FDC627;
 }
 .left{
     text-align: left;
