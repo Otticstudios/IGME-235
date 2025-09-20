@@ -1,0 +1,47 @@
+/* Style.css */
+h1{
+    color: #0B2545;
+    font-family: 'Times New Roman', Times, serif;
+}
+h2{
+    color: #0d0a69;
+}
+body{
+    background-color: #75B0BD;
+}
+p{
+    color:#12335E;
+}
+li{
+    color:#12335E;
+}
+a:link{
+    color:#08195d;
+}
+
+a:visited{
+    color:blue;
+}
+a:hover{
+    color:#BAD7D6;
+}
+a:focus{
+    color:rgb(61, 91, 179);
+}
+a:active{
+color:#BBDAE9;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+#whiteout{
+    color:white
+}
+#Centermint{
+ text-align: center;
+ color: rgb(162, 243, 202);
+}
+
