@@ -23,13 +23,13 @@ a:visited{
     color:orange;
 }
 a:hover{
-    color:#f8c81c;
+    color:#f1e3b1;
 }
 a:focus{
-    color:#F19E04;
+    color:#bf810f;
 }
 a:active{
-color:#FDC627;
+color:#9c7a14;
 }
 .left{
     text-align: left;
