@@ -10,15 +10,29 @@
         padding: 1rem;
         }
     body{
+        
         background-color: #86BBD8;
     }
     h2{
-        margin-left: 25px;
-        color: #071a70;
+        
+        color: #c6cef0;
+        padding: 0.5rem;
+        
     }
-    p{margin-left: 50px;}
-    footer{background-color: #843B62;}
+    main{
+    background-image: url("images/Repeatingbackground.png");
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: black;
+    border-style: solid;
+    border-radius: 1px;
+    width: 80vw;}
+    p{padding: 0.5rem; color: white;}
+    li{color: white;}
+    footer{background-color: #6045ba;}
     img.side {float:right; margin: 0 12px;}
-    a:link{color: #156064;}
+    a:link{color: #08182e;}
     a:visited{color: #A08794;}
     
