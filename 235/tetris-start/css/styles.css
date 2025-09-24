@@ -1,0 +1,30 @@
+figure{max-width: 650px; margin-left: auto; margin-right: auto;} 
+figure img{width: 100%;}
+header,
+main,
+footer {
+  width: 90vw;            /* 90% of the viewport width */
+  margin-left: auto;      /* Center horizontally */
+  margin-right: auto;     /* Center horizontally */
+}
+#tetlist{
+    display: flex;
+    flex-flow: row wrap;
+}
+#tetlist > div
+{
+display:block;
+   flex: 1 0 450px;
+   border: 1px solid black;
+   text-align: center;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   
+}
+#tetlist > div img{
+    width: 60%;
+}
+.aliases{
+    text-align: left;
+    margin: 1em 0;
+}

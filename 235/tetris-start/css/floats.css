@@ -1,0 +1,5 @@
+h2{clear: right; border-bottom: 2px solid red;}
+h3{border-bottom: 2px solid red;}
+figure{width: 40%;}
+figure img{width: 75%; float: right; margin-left: 20px;}
+.tet{width: 75rem; float: left; border: 1px solid black;}
