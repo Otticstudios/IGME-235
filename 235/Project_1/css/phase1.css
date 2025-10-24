@@ -1,0 +1,94 @@
+#page{
+    display: grid;
+  row-gap: 5px;
+  column-gap: 1px;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+  "card card" 
+  "time time"
+  "title title"
+  "body body"
+  "photo1 photo1"
+  "caption1 caption2"
+  "photo2 photo2"
+  "pink-slip top-secret";
+  
+  
+  @media (min-width: 900px) {
+    grid-template-columns: 25% 25% 50%;
+    grid-template-areas:
+    "card card  time"
+    "photo1   photo1  title"
+    "caption1 caption2 body"
+    "photo2 photo2 body"
+    "pink-slip pink-slip top-secret";
+    h1{text-align: center;}
+  }
+       
+}
+#Title{
+    grid-area: title;
+    text-align: center;
+    margin-top: 3em;
+}
+h1.time{
+    grid-area: time;
+    text-align: center;
+    top:0;
+    color: grey;
+    margin-top: 3em;
+}
+.sub{
+    font-weight: bold;
+
+}
+h1.title{
+    
+        font-size: 100px;
+    }
+#card{
+    grid-area: card;
+    background-image: url(../media/Seamless-Steel-Texture-1.jpg);
+    background-color: rgb(237, 233, 9);
+    background-blend-mode: multiply;
+    background-size: cover;
+    font-size: 35px;
+    
+    text-align: center;
+    width: auto;
+}
+#Caption1{
+    grid-area: caption1;
+}
+#Caption2{
+    grid-area: caption2;
+}
+p.main{grid-area: body;
+align-self: center; 
+      justify-self: center;}
+h1{
+    font-family: 'black-ops',Impact;
+}
+#pink{
+    grid-area: pink-slip;
+    background-color: palevioletred;
+    text-align: center;
+    width:auto;
+}
+@font-face {
+    font-family: black-ops;
+    src: url(../media/BlackOpsOne-Regular.woff);
+    font-weight: normal;
+    font-style: normal;
+}
+#UFO{
+    margin-top: 2em;
+    grid-area: photo1;
+}
+#Top-Secret{
+    grid-area: top-secret;
+}
+#planets{
+    grid-area: photo2;
+    margin-left: 4em;
+}
