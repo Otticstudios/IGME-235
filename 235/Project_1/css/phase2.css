@@ -1,0 +1,107 @@
+#page{
+    display: grid;
+  row-gap: 5px;
+  column-gap: 1px;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+  "card card" 
+  "time time"
+  "title title"
+  "body body"
+  "photo1 photo1"
+  "caption1 caption2"
+  "photo2 photo2"
+  "pink-slip arbys";
+  
+  
+  @media (min-width: 900px) {
+    grid-template-columns: 25% 25% 50%;
+    grid-template-areas:
+    "card card  time"
+    "photo1   photo1  title"
+    "caption1 caption2 body"
+    "photo2 photo2 body"
+    "pink-slip pink-slip arbys";
+ 
+  }
+       
+}
+#Title{
+    grid-area: title;
+    text-align: center;
+    margin-top: 3em;
+}
+h1.time{
+    grid-area: time;
+    text-align: center;
+    top:0;
+    color: grey;
+    margin-top: 3em;
+}
+.sub{
+    font-weight: bold;
+    font-size: 17px;
+
+}
+h1.title{
+    
+        font-size: 80px;
+    }
+#card{
+    grid-area: card;
+    background-image: url(../media/Coin-Pile.jpg);
+    background-color: goldenrod;
+    background-blend-mode: multiply;
+    background-size: cover;
+    font-size: 35px;
+    
+    text-align: center;
+    width: auto;
+}
+#Caption1{
+    grid-area: caption1;
+}
+#Caption2{
+    grid-area: caption2;
+}
+p.main{grid-area: body;
+align-self: center; 
+      justify-self: center;
+    font-size: 18px;}
+h1{
+    font-family: 'PressStart2P-Regular',Impact;
+}
+#pink{
+    grid-area: pink-slip;
+    background-color: palevioletred;
+    text-align: center;
+    h2{font-size: 35px;}
+    p{font-size: 25px;}
+    width:auto;
+}
+@font-face {
+    font-family: 'PressStart2P-Regular';
+  src: url(../media/PressStart2P-Regular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    
+  font-family: 'Jersey25-Regular';
+  src: url(../media/Jersey25-Regular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#cover{
+    margin-top: 2em;
+    grid-area: photo1;
+}
+#arbys{
+    grid-area: arbys;
+    margin-left: 3em;
+}
+#smash{
+    grid-area: photo2;
+    margin-left: 4em;
+}
+p{font-family: 'Jersey25-Regular',Arial, Helvetica, sans-serif;}
