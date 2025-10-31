@@ -6,26 +6,26 @@
   grid-template-areas:
   "card card" 
   "time time"
+  "Nav Nav"
   "title title"
   "body body"
   "photo1 photo1"
   "caption1 caption2"
   "photo2 photo2"
-  "pink-slip arbys";
+  "cameo arbys";
   
-  
-  @media (min-width: 900px) {
+   }
+   @media (min-width: 900px) 
+  { #page{
     grid-template-columns: 25% 25% 50%;
+    grid-template-rows: 10% 5% 20% 10% auto auto;
     grid-template-areas:
     "card card  time"
+    "Nav Nav Nav"
     "photo1   photo1  title"
     "caption1 caption2 body"
     "photo2 photo2 body"
-    "pink-slip pink-slip arbys";
- 
-  }
-       
-}
+    "cameo cameo arbys";}}
 #Title{
     grid-area: title;
     text-align: center;
@@ -54,7 +54,6 @@ h1.title{
     background-blend-mode: multiply;
     background-size: cover;
     font-size: 35px;
-    
     text-align: center;
     width: auto;
 }
@@ -64,24 +63,25 @@ h1.title{
 #Caption2{
     grid-area: caption2;
 }
-p.main{grid-area: body;
-align-self: center; 
-      justify-self: center;
-    font-size: 18px;}
-h1{
+#main{grid-area: body; 
+justify-self: center;
+    font-size: 20px;}
+h1, h2, h3{
     font-family: 'PressStart2P-Regular',Impact;
+    
 }
-#pink{
-    grid-area: pink-slip;
-    background-color: palevioletred;
+
+#cameo{
+    grid-area: cameo;
+    background-color: rgb(81, 68, 156);
     text-align: center;
-    h2{font-size: 35px;}
-    p{font-size: 25px;}
     width:auto;
 }
+ #cameo h2{font-size: 35px;}
+    #cameo p{font-size: 25px;}
 @font-face {
     font-family: 'PressStart2P-Regular';
-  src: url(../media/PressStart2P-Regular.woff) format('woff');
+    src: url(../media/PressStart2P-Regular.woff) format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -93,15 +93,42 @@ h1{
     font-style: normal;
 }
 #cover{
-    margin-top: 2em;
-    grid-area: photo1;
+    grid-area: photo2;
+    place-self: center;
+    margin-bottom: 10em;
+    
 }
 #arbys{
     grid-area: arbys;
-    margin-left: 3em;
+    place-self: center;
 }
 #smash{
-    grid-area: photo2;
-    margin-left: 4em;
+    grid-area: photo1;
+    place-self: center;
 }
+#Navbar{
+    
+    grid-area: Nav;}
+#Navbar ul{
+list-style-type: none;
+    background-color: rgb(6, 37, 190);
+    overflow: hidden;
+}
+#Navbar a{
+    color: white;
+    font-family: 'Jersey25-Regular',Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+#Navbar a:link{color:white}
+#Navbar a:focus{color: deepskyblue;}
+#Navbar a:hover
+{
+background-color: rgb(83, 83, 218);
+}
+#Navbar a:visited{color: rgb(5, 32, 50);}
+#Navbar a:active{color: aqua;}
+#Navbar li{float: left;}
 p{font-family: 'Jersey25-Regular',Arial, Helvetica, sans-serif;}
