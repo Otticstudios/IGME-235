@@ -75,15 +75,9 @@ function getData(url)
 				let line=`<div class="result">
 				<h3>${name}</h3>`;
                 if(!imageURL) {imageURL="images/no-image-found.png"}
-				else
-					{
-						image.src=imageURL;
-						
-					}
-				
-                
+			
                 line+=`<img src="${imageURL}">`
-                line+=`p><b>Character:</b> ${character} <br>
+                line+=`<p><b>Character:</b> ${character} <br>
                 <b>Game Series:</b> ${game} <br>
                 <b>Amiibo Series:</b> ${series} <br>
                 <b>Type:</b> ${type}</p> </div>`;
