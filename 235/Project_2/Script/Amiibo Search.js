@@ -58,10 +58,12 @@ function getData(url)
 		}
 		let results = obj.amiibo;
 		console.log("results.legnth = "+results.length);
-		let bigString ="<p><i>Here are "+results.length+" results for '"+displayTerm+"'</i></p>";
+		let resultCount ="<p><i>Here are "+results.length+" results for '"+displayTerm+"'</i></p>";
+		let bigString="";
         //Loop
 		for(let i=0;i<results.length;i++)
             {
+				let image= new Image();
                 let result=results[i];
                 //Grab Results
                 let name= result.name;
@@ -70,17 +72,25 @@ function getData(url)
                 let type= result.type;
                 let character= result.character;
                 let imageURL= result.image;
-                if(!imageURL) imageURL="images/no-image-found.png";
-                let line=`<div class="result">
-				<h3>${name}</h3>
-                <img src="${imageURL}">
-                <p>Character: ${character} <br>
-                Game Series: ${game} <br>
-                Amiibo Series: ${series} <br>
-                Type: ${type}</p> </div>`;
+				let line=`<div class="result">
+				<h3>${name}</h3>`;
+                if(!imageURL) {imageURL="images/no-image-found.png"}
+				else
+					{
+						image.src=imageURL;
+						
+					}
+				
+                
+                line+=`<img src="${imageURL}">`
+                line+=`p><b>Character:</b> ${character} <br>
+                <b>Game Series:</b> ${game} <br>
+                <b>Amiibo Series:</b> ${series} <br>
+                <b>Type:</b> ${type}</p> </div>`;
                 bigString+=line;
             }
-        document.querySelector('#content').innerHTML=bigString;
+		document.querySelector('#resultcount').innerHTML=resultCount;
+        document.querySelector('#searchresults').innerHTML=bigString;
 		document.querySelector('#status').innerHTML="<b>Success!</b>";
     }
 function dataError(e)

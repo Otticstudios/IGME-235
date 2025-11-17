@@ -28,12 +28,14 @@ body {
   margin: 0 1em;
 }
 #content {
-display: flex;
-  flex-wrap: wrap;
+	grid-area: 'results';
   justify-content: center;
   margin-top: 1em;
 }
-
+#searchresults{
+	display: flex;
+  flex-wrap: wrap;
+}
 #searchterm,
 #filter,
 button {
@@ -60,10 +62,10 @@ button {
  		}
  		
  		.result {
-			grid-area: 'results';
-			display: flex;
+			display: inline-flex;
 			flex-direction: column;
 			position: relative;
+			justify-content: center;
 			height: 400px;
 			width: 200px;
 			background-color: white;
@@ -75,17 +77,18 @@ button {
 
 		.result img {
 			align-self: center;
-			height: 200px;
+			height: 150px;
 			width: auto;
+			object-fit: contain;
 			bottom: 2px;
-			
+		
 		}
 		
 		.result h3{
-			font-size:12px;
+			font-size:16px;
 			font-weight:bold;
-			
 		}
+		.result p{font-size: small;}
 		#searchterm,
 
 		.result audio{
