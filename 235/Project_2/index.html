@@ -1,9 +1,37 @@
 <!DOCTYPE html>
-<html>
- <title>Project 2</title>
- <body>
-<h1>Project 2</h1>
-<p>Come Back When it Actually Exists.</p>
- </body>
- 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amiibo Finder</title>
+	<link rel="stylesheet" href="styles/main.css">
+	<script src="Script/Amiibo Search.js"></script>
+</head>
+<body>
+<header>
+    <h1>Amiibo Finder</h1>
+</header>
+<div class="widgets">
+    Search Term -> 
+	<input id="searchterm" type="text" size="20" maxlength="20" autofocus value="Mario" />
+</div>
+<div class="widgets">
+	Filter -> 
+	<select id="filter">
+		<option value="name" selected>Name</option>
+		<option value="type">Type</option>
+		<option value="gameseries">Game Series</option>
+		<option value="amiiboSeries">Amiibo Series</option>
+		<option value="character">Character</option>
+	</select>
+</div>
+<div class="widgets">
+	<button type="button" id="search" class="green"><Search> Find Amiibos</Search><br />:-)</button>
+</div>
+<div id="status">Ready to Search!</div>
+<h2>Results</h2>
+<div id="content">
+	<p>No data yet!</p>
+</div>
+</body>
 </html>
