@@ -7,8 +7,10 @@ body {
     "header"
     "controls"
     "status"
-    "results";
-  grid-template-rows: auto auto auto 1fr;
+	"button"
+    "result text"
+	"results";
+  grid-template-rows: auto auto auto 1fr auto;
   justify-items: center;
   text-align: center;
   margin: 0;
@@ -17,6 +19,7 @@ body {
 
  		header{
 			grid-area: 'header';
+			background-color: red;
  			height:195px;
 			width: 100%;
  		}
@@ -25,59 +28,63 @@ body {
   margin: 0 1em;
 }
 #content {
-  grid-area: results;
-  display: flex;
+display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  width: 90%;
   margin-top: 1em;
 }
+
 #searchterm,
-#limit,
+#filter,
 button {
   vertical-align: middle;
 }
+	#content p
+	{
+		text-align: center;
+		margin-top: 2em;
+	}
  		header h1{
  			margin:0;
- 			color:blue;
+ 			color:rgb(255, 255, 255);
  			text-align:center;
  			font-size:100px;
  			padding-top: 35px;
  		}
  		
  		#status{
+			grid-area: 'status';
  			font-style: italic;
 			text-align: center;
  			height:32px;
  		}
  		
  		.result {
+			grid-area: 'results';
+			display: flex;
+			flex-direction: column;
 			position: relative;
-			height: 175px;
-			width: 100px;
-			float:left;
-			border:1px solid gray;
-			padding:5px;
+			height: 400px;
+			width: 200px;
+			background-color: white;
+			border:2px solid red;
+			padding:2px;
 			margin-left:10px;
 			margin-bottom:10px;
 		}
 
 		.result img {
-			position: absolute;
 			align-self: center;
-			width: 80px;
-			height: auto;
-			left: 5px;
-			bottom: 5px;
-			display:block;
+			height: 200px;
+			width: auto;
+			bottom: 2px;
 			
 		}
 		
-		.result span{
+		.result h3{
 			font-size:12px;
 			font-weight:bold;
-			display:block;
+			
 		}
 		#searchterm,
 
@@ -86,6 +93,7 @@ button {
 		}
 		
 		button{
+		grid-area: 'button';
 		  display : inline-block;
 		  cursor : pointer;
 		margin-left: auto;

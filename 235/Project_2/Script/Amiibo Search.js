@@ -72,12 +72,12 @@ function getData(url)
                 let imageURL= result.image;
                 if(!imageURL) imageURL="images/no-image-found.png";
                 let line=`<div class="result">
-                <img src="${imageURL}" width="120">
-                <h3>${name}</h3>
-                <p>Character: ${character}</p>
-                <p>Game Series: ${game}</p>
-                <p>Amiibo Series: ${series}</p>
-                <p>Type: ${type}</p> </div>`;
+				<h3>${name}</h3>
+                <img src="${imageURL}">
+                <p>Character: ${character} <br>
+                Game Series: ${game} <br>
+                Amiibo Series: ${series} <br>
+                Type: ${type}</p> </div>`;
                 bigString+=line;
             }
         document.querySelector('#content').innerHTML=bigString;
