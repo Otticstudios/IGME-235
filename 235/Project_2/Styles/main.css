@@ -6,8 +6,8 @@ body {
   grid-template-areas:
     "header"
     "controls"
-    "status"
 	"button"
+	"status"
     "result text"
 	"results";
   grid-template-rows: auto auto auto 1fr auto;
@@ -16,16 +16,28 @@ body {
   margin: 0;
   padding: 0;
 }
+.amiibologo
+{
+height: 85px;
+width: auto;
+background: url('../images/Amiibo_logo.png') no-repeat;
+background-position: center;
+text-indent: -9999px;
+}
+header h2{font-size: 40px; color: white;}
 
- 		header{
+header{
 			grid-area: 'header';
 			background-color: red;
- 			height:195px;
+ 			height:200px;
 			width: 100%;
  		}
 .widgets {
-  display: inline-block;
-  margin: 0 1em;
+grid-area: "controls";
+  
+  margin-bottom: 10px;
+  margin-top: 10px;
+
 }
 #content {
 	grid-area: 'results';
@@ -114,18 +126,18 @@ button {
 		  text-decoration : none;
 		}
 		
-		button.green{
-			border-color: #8fc800;
-	  		background: #8fc800;
-	  		background: linear-gradient(top, #8fc800 0%,#438c00 100%);
+		button.red{
+			border-color: #000000;
+	  		background: #ff241c;
+	  		background: linear-gradient(top, #c80000 0%,#8c0000 100%);
 		}
 		
 		button:hover{
-			background: #8fDD00;
+			background: #ff241f;
 		}
 		
 		button:active{
-			background: #8fFF00;
+			background: #9b0303;
 			box-shadow : 0 0 6px rgba(0,0,0,.6);
 		}
 		

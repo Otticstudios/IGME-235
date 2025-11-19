@@ -74,7 +74,7 @@ function getData(url)
                 let imageURL= result.image;
 				let line=`<div class="result">
 				<h3>${name}</h3>`;
-                if(!imageURL) {imageURL="images/no-image-found.png"}
+                if(!imageURL) {imageURL="../images/no-image-found.png"}
 			
                 line+=`<img src="${imageURL}">`
                 line+=`<p><b>Character:</b> ${character} <br>
