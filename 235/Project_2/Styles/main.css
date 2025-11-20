@@ -5,16 +5,16 @@ body {
   display: grid;
   grid-template-areas:
     "header"
-    "controls"
+	"instructions"
+    "search"
+	"filter"
 	"button"
 	"status"
     "result text"
 	"results";
-  grid-template-rows: auto auto auto 1fr auto;
   justify-items: center;
   text-align: center;
-  margin: 0;
-  padding: 0;
+  
 }
 .amiibologo
 {
@@ -24,21 +24,24 @@ background: url('../images/Amiibo_logo.png') no-repeat;
 background-position: center;
 text-indent: -9999px;
 }
-header h2{font-size: 40px; color: white;}
+header h2{font-size: 40px; color: black;}
 
 header{
 			grid-area: 'header';
-			background-color: red;
- 			height:200px;
+ 			height:250px;
 			width: 100%;
  		}
 .widgets {
-grid-area: "controls";
   
   margin-bottom: 10px;
   margin-top: 10px;
-
 }
+#instructions
+{
+	grid-area: 'instructions';
+}
+#searchterm{grid-area: 'search';}
+#filter{grid-area: 'filter';}
 #content {
 	grid-area: 'results';
   justify-content: center;
@@ -59,10 +62,8 @@ button {
 		margin-top: 2em;
 	}
  		header h1{
- 			margin:0;
- 			color:rgb(255, 255, 255);
+ 			color:black;
  			text-align:center;
- 			font-size:100px;
  			padding-top: 35px;
  		}
  		
@@ -76,31 +77,30 @@ button {
  		.result {
 			display: inline-flex;
 			flex-direction: column;
-			position: relative;
-			justify-content: center;
-			height: 400px;
-			width: 200px;
+			height: 550px;
+			width: 550px;
 			background-color: white;
-			border:2px solid red;
+			border:5px solid red;
 			padding:2px;
-			margin-left:10px;
+			margin-left:auto;
+			margin-right: auto;
 			margin-bottom:10px;
 		}
 
 		.result img {
 			align-self: center;
-			height: 130px;
+			height: 275px;
 			width: auto;
 			object-fit: contain;
 			bottom: 2px;
 		
 		}
 		
-		.result h3{
-			font-size:16px;
+		.result h1{
+			
 			font-weight:bold;
 		}
-		.result p{font-size: small;}
+		.result p{font-size:20px;}
 		#searchterm,
 
 		.result audio{
