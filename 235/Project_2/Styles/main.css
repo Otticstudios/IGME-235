@@ -1,147 +1,162 @@
-*{
-			font-family:verdana,tahoma,sans-serif;
-		}
-body {
-  display: grid;
-  grid-template-areas:
-    "header"
-	"instructions"
-    "search"
-	"filter"
-	"button"
-	"status"
-    "result text"
-	"results";
-  justify-items: center;
-  text-align: center;
-  
+* {
+	font-family: verdana, tahoma, sans-serif;
 }
-.amiibologo
-{
-height: 85px;
-width: auto;
-background: url('../images/Amiibo_logo.png') no-repeat;
-background-position: center;
-text-indent: -9999px;
-}
-header h2{font-size: 40px; color: black;}
 
-header{
-			grid-area: 'header';
- 			height:250px;
-			width: 100%;
- 		}
+body {
+	display: grid;
+	grid-template-areas:
+		"title instructions"
+		"search filter"
+		"button button"
+		"status status"
+		"resulttext resulttext"
+		"results results"
+		"footer footer";
+	justify-items: center;
+	gap: 3px;
+
+}
+
+.amiibologo {
+	height: 200px;
+	width: 600px;
+	background: url('../images/Amiibo_logo.png') no-repeat;
+	background-position: center;
+	text-indent: -9999px;
+}
+
+#title h2 {
+	font-size: 40px;
+	color: black;
+	text-align: center;
+}
+
+#title {
+	grid-area: title;
+}
+
 .widgets {
-  
-  margin-bottom: 10px;
-  margin-top: 10px;
+	display: inline-block;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
-#instructions
-{
-	grid-area: 'instructions';
+
+#instructions {
+	grid-area: instructions;
 }
-#searchterm{grid-area: 'search';}
-#filter{grid-area: 'filter';}
-#content {
-	grid-area: 'results';
-  justify-content: center;
-  margin-top: 1em;
+
+#searchterm {
+	grid-area: search;
 }
-#searchresults{
+
+#filter {
+	grid-area: filter;
+}
+
+#result {
+	grid-area: resulttext;
+}
+
+#searchresults {
+	grid-area: results;
+	justify-content: center;
+	margin-top: 1em;
 	display: flex;
-  flex-wrap: wrap;
+	flex-wrap: wrap;
 }
+.button{grid-area: button;}
 #searchterm,
 #filter,
 button {
-  vertical-align: middle;
+	vertical-align: middle;
 }
-	#content p
-	{
-		text-align: center;
-		margin-top: 2em;
-	}
- 		header h1{
- 			color:black;
- 			text-align:center;
- 			padding-top: 35px;
- 		}
- 		
- 		#status{
-			grid-area: 'status';
- 			font-style: italic;
-			text-align: center;
- 			height:32px;
- 		}
- 		
- 		.result {
-			display: inline-flex;
-			flex-direction: column;
-			height: 550px;
-			width: 550px;
-			background-color: white;
-			border:5px solid red;
-			padding:2px;
-			margin-left:auto;
-			margin-right: auto;
-			margin-bottom:10px;
-		}
 
-		.result img {
-			align-self: center;
-			height: 275px;
-			width: auto;
-			object-fit: contain;
-			bottom: 2px;
-		
-		}
-		
-		.result h1{
-			
-			font-weight:bold;
-		}
-		.result p{font-size:20px;}
-		#searchterm,
+#content p {
+	text-align: center;
+	margin-top: 2em;
+}
 
-		.result audio{
-			width: 130px;
-		}
-		
-		button{
-		grid-area: 'button';
-		  display : inline-block;
-		  cursor : pointer;
-		margin-left: auto;
-		margin-right: auto;
-		  border-style : solid;
-		  border-width : 1px;
-		  border-radius : 50px;
-		  padding : 10px 18px;
-		  box-shadow : 0 1px 4px rgba(0,0,0,.6);
-		  font-size : 9.5pt;
-		  font-weight : bold;
-		  color : #fff;
-		  text-shadow : 0 1px 3px rgba(0,0,0,.4);
-		  font-family : sans-serif;
-		  text-decoration : none;
-		}
-		
-		button.red{
-			border-color: #000000;
-	  		background: #ff241c;
-	  		background: linear-gradient(top, #c80000 0%,#8c0000 100%);
-		}
-		
-		button:hover{
-			background: #ff241f;
-		}
-		
-		button:active{
-			background: #9b0303;
-			box-shadow : 0 0 6px rgba(0,0,0,.6);
-		}
-		
-		button:focus {outline:0;}
-		
-		
 
+#status {
+	grid-area: status;
+	font-style: italic;
+	justify-content: center;
+	text-align: center;
+	height: 32px;
+}
+
+.result {
+	display: inline-flex;
+	flex-direction: column;
+	height: 550px;
+	width: 550px;
+	background-color: white;
+	border: 5px solid red;
+	padding: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+
+.result img {
+	align-self: center;
+	height: 275px;
+	width: auto;
+	object-fit: contain;
+	bottom: 2px;
+
+}
+
+.result h1 {
+
+	font-weight: bold;
+}
+
+.result p {
+	font-size: 20px;
+}
+
+#searchterm,
+
+.result audio {
+	width: 130px;
+}
+
+button {
+	grid-area: button;
+	display: inline-block;
+	cursor: pointer;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 50px;
+	padding: 10px 18px;
+
+	font-size: 9.5pt;
+	font-weight: bold;
+	color: #fff;
+
+	font-family: sans-serif;
+	text-decoration: none;
+}
+
+button.red {
+	border-color: #000000;
+	background: #ff241c;
+	background: linear-gradient(top, #c80000 0%, #8c0000 100%);
+}
+
+button:hover {
+	background: #ff241f;
+}
+
+button:active {
+	background: #9b0303;
+
+}
+
+button:focus {
+	outline: 0;
+}
+footer{grid-area: footer;}

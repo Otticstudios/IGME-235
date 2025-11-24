@@ -8,10 +8,10 @@
 	<script src="Script/Amiibo Search.js"></script>
 </head>
 <body>
-<header>
+<div id="title">
     <h1 class="amiibologo">Amiibo</h1>
 	<h2>Finder</h2>
-</header>
+</div>
 <div id="instructions">
 <h3>HOW TO SEARCH</h3>
 <p>Search for your favorite character or Series using the Search Bar<br>
@@ -31,15 +31,15 @@ Filter your search using the different options. Click Find Amiibos, and you're G
 		<option value="character">Character</option>
 	</select>
 </div>
-<div class="widgets">
+<div class="button">
 	<button type="button" id="search" class="red"><Search> Find Amiibos</Search></button>
 </div>
 <div id="status">Ready to Search!</div>
+<div id="result">
 <h2>Results</h2>
-<div id="content">
-	<p id="resultcount">No data yet!</p>
-	<div id="searchresults"></div>
+<p id="resultcount">No data yet!</p>
 </div>
+	<div id="searchresults"></div>
 <footer>
 <a href="Documentation.html">Documentation</a>
 </footer>
