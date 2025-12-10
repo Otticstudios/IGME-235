@@ -92,7 +92,7 @@ fireballSound = new Howl({
 app.ticker.add(gameLoop);
 	
 	// #9 - Start listening for click events on the canvas
-	
+	app.view.onclick= fireBullet;
 	// Now our `startScene` is visible
 	// Clicking the button calls startGame()
 }
@@ -199,18 +199,18 @@ function startGame(){
    life=100;
    increaseScoreBy(0);
    decreaseLifeBy(0);
-   ship.x=350;
+   ship.x=300;
     ship.y=550;
     loadLevel();
 }
 function increaseScoreBy(value){
     score +=value;
-    scoreLabel.text='Score ${score}';
+    scoreLabel.text=`Score ${score}`;
 }
 function decreaseLifeBy(value){
     life -=value;
     life= parseInt(life);
-    lifeLabel.text= 'Life ${life}%';
+    lifeLabel.text= `Life ${life}%`;
 }
 function gameLoop(){
 	if (paused) return; // keep this commented out for now
@@ -241,17 +241,31 @@ ship.y=clamp(newY,0+l2,sceneHeight-l2);
             c.reflectX();
             c.move(dt);
         }
-        if(c.r <=c.radius||c.y>=sceneHeight-c.radius){
+        if(c.y <=c.radius||c.y>=sceneHeight-c.radius){
             c.reflectY();
             c.move(dt);
         }
     }
 	
 	// #4 - Move Bullets
+	for (let b of bullets){
+		b.move(dt);
+	}
 
 	
 	// #5 - Check for Collisions
 	for(let c of circles){
+        for(let b of bullets){
+            if(rectsIntersect(c,b)){
+                fireballSound.play();
+                gameScene.removeChild(c);
+                c.isAlive=false;
+                gameScene.removeChild(b);
+                b.isAlive= false;
+                increaseScoreBy(1);
+            }
+            if(b.y<-10) b.isAlive=false;
+        }
         if(c.isAlive && rectsIntersect(c,ship)){
             hitSound.play();
             gameScene.removeChild(c);
@@ -278,6 +292,10 @@ if (life <= 0){
 	
 	
 	// #8 - Load next level
+    if (circles.length == 0){
+	levelNum ++;
+	loadLevel();
+}
 }
 function createCircles(numCircles){
     for(let i=0;i<numCircles;i++){
@@ -303,4 +321,12 @@ function end(){
     explosions=[];
     gameOverScene.visible=true;
     gameScene.visible=false;
+}
+function fireBullet(e){
+
+    if(paused) return;
+    let b= new Bullet(0xFFFFFF,ship.x,ship.y);
+    bullets.push(b);
+    gameScene.addChild(b);
+    shootSound.play();
 }
