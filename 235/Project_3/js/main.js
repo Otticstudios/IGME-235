@@ -12,14 +12,14 @@ const sceneWidth = app.view.width;
 const sceneHeight = app.view.height;	
 
 // pre-load the images (this code works with PIXI v6)
-app.loader.
+/*app.loader.
     add([
         "images/spaceship.png",
         "images/explosions.png"
     ]);
 app.loader.onProgress.add(e => { console.log(`progress=${e.progress}`) });
 app.loader.onComplete.add(setup);
-app.loader.load();
+app.loader.load();*/
 
 // pre-load the images (this code works with PIXI v7)
 // let assets;
@@ -44,7 +44,7 @@ let stage;
 let startScene;
 let gameScene,ship,scoreLabel,lifeLabel,shootSound,hitSound,fireballSound;
 let gameOverScene;
-
+let gameOverScoreLabel= new PIXI.Text("Final Score: ");
 let circles = [];
 let bullets = [];
 let aliens = [];
@@ -83,10 +83,11 @@ hitSound = new Howl({
 });
 
 fireballSound = new Howl({
-	src: ['sounds/fireball.mp3']
+	src: ['sounds/explosion.wav']
 });
 	
 	// #7 - Load sprite sheet
+explosionTextures = loadSpriteSheet();
 		
 	// #8 - Start update loop
 app.ticker.add(gameLoop);
@@ -100,8 +101,8 @@ function createLabelsandButtons()
 {
 let buttonStyle= new PIXI.TextStyle({
     fill: 0xFF0000,
-    fontSize: 48,
-    fontFamily: "Verdana",
+    fontSize: 25,
+    fontFamily: "Press Start 2P",
 
 });
 //1 - Set up "Start Scene"
@@ -109,8 +110,8 @@ let buttonStyle= new PIXI.TextStyle({
 let startLabel1= new PIXI.Text("Circle Blast!");
 startLabel1.style= new PIXI.TextStyle({
     fill: 0xFFFFFF,
-    fontSize: 96,
-    fontFamily:"Verdana",
+    fontSize: 40,
+    fontFamily:"Press Start 2P",
     stroke: 0xFF0000,
     strokeThickness: 6
 });
@@ -121,8 +122,8 @@ startScene.addChild(startLabel1);
 let startLabel2 = new PIXI.Text("R U... worthy?");
 startLabel2.style= new PIXI.TextStyle({
     fill: 0xFFFFFF,
-    fontSize: 32,
-    fontFamily: "Verdana",
+    fontSize: 20,
+    fontFamily: "Press Start 2P",
     fontStyle: "italic",
     stroke: 0xFF0000,
     strokeThickness: 6
@@ -144,8 +145,8 @@ startScene.addChild(startButton);
  //2 Set up GameScene
     let textStyle = new PIXI.TextStyle({
         fill: 0xFFFFFF,
-        fontSize: 18,
-        fontFamily: "Verdana",
+        fontSize: 20,
+        fontFamily: "Press Start 2P",
         stroke: 0xF000000,
         strokeThickness: 4
     });
@@ -168,16 +169,22 @@ startScene.addChild(startButton);
 let gameOverText = new PIXI.Text("Game Over!\n        :-O");
 textStyle = new PIXI.TextStyle({
 	fill: 0xFFFFFF,
-	fontSize: 64,
-	fontFamily: "Futura",
+	fontSize: 30,
+	fontFamily: "Press Start 2P",
 	stroke: 0xFF0000,
 	strokeThickness: 6
 });
 gameOverText.style = textStyle;
 gameOverText.x = 100;
 gameOverText.y = sceneHeight/2 - 160;
+
 gameOverScene.addChild(gameOverText);
 
+
+gameOverScoreLabel.style= textStyle;
+gameOverScoreLabel.x=100;
+gameOverScoreLabel.y= sceneHeight/2 - 90;
+gameOverScene.addChild(gameOverScoreLabel);
 // 3B - make "play again?" button
 let playAgainButton = new PIXI.Text("Play Again?");
 playAgainButton.style = buttonStyle;
@@ -258,6 +265,7 @@ ship.y=clamp(newY,0+l2,sceneHeight-l2);
         for(let b of bullets){
             if(rectsIntersect(c,b)){
                 fireballSound.play();
+                createExplosion(c.x,c.y,64,64);
                 gameScene.removeChild(c);
                 c.isAlive=false;
                 gameScene.removeChild(b);
@@ -320,6 +328,7 @@ function end(){
     explosions.forEach(e=>gameScene.removeChild(e));
     explosions=[];
     gameOverScene.visible=true;
+    gameOverScoreLabel.text=`Final Score: ${score}`;
     gameScene.visible=false;
 }
 function fireBullet(e){
@@ -329,4 +338,29 @@ function fireBullet(e){
     bullets.push(b);
     gameScene.addChild(b);
     shootSound.play();
+}
+function loadSpriteSheet(){
+    let spriteSheet= PIXI.BaseTexture.from("images/explosions.png");
+    let width= 64;
+    let height= 64;
+    let numFrames=16;
+    let textures=[];
+    for(let i=0;i<numFrames;i++){
+        let frame= new PIXI.Texture(spriteSheet, new PIXI.Rectangle(i*width,64,width,height));
+        textures.push(frame);
+    }
+    return textures;
+}
+function createExplosion(x,y,frameWidth,frameHeight){
+    let w2= frameWidth/2;
+    let l2= frameHeight/2;
+    let expl= new PIXI.AnimatedSprite(explosionTextures);
+    expl.x=x-w2;
+    expl.y=y-l2;
+    expl.animationSpeed=1/7;
+    expl.loop=false;
+    expl.onComplete=e=>gameScene.removeChild(expl);
+    explosions.push(expl);
+    gameScene.addChild(expl);
+    expl.play();
 }
